@@ -46,7 +46,10 @@ RCT_EXPORT_MODULE();
 }
 
 - (void)maioDidInitialize {
-  [self onSentEvent:INITIALIZED];
+  if (hasListeners) {
+    NSDictionary* event = @{TYPE: INITIALIZED, VERSION: [Maio sdkVersion]};
+    [self sendEventWithName:NAME body:event];
+  }
 }
 
 - (void)maioWillStartAd:(NSString *)zoneId {
@@ -98,7 +101,7 @@ RCT_EXPORT_MODULE();
     case MaioFailReasonNotFoundViewContext:
       return @"View Context not found";
     default:
-          return @"Unknown";
+      return @"Unknown";
   }
 }
 

@@ -18,6 +18,8 @@ import {
 } from 'react-native-maio';
 
 export default function App() {
+  const [version, setVersion] = React.useState<string>('');
+  const [reason, setReason] = React.useState<string>('');
   const [isInitMaio, setIsInitMaio] = React.useState<boolean>(false);
   const [isReady, setIsReady] = React.useState<boolean>(false);
 
@@ -29,6 +31,7 @@ export default function App() {
       switch (event.type) {
         case EventType.initialized:
           setIsInitMaio(true);
+          setVersion(event.version ?? '');
           break;
         case EventType.opened:
         case EventType.started:
@@ -40,7 +43,7 @@ export default function App() {
           console.log('Maio skipped: ', event.skipped);
           break;
         case EventType.error:
-          console.log('Maio error: ', event.error);
+          setReason(event.error ?? '');
           break;
       }
     });
@@ -49,8 +52,12 @@ export default function App() {
   return (
     <SafeAreaView style={CONTAINER}>
       <Image style={LOGO} source={require('./maio-logo.png')} />
-      <Text style={TX}>Maio initialized : {isInitMaio.toString()}</Text>
+      <Text style={TX}>
+        Maio {version !== '' && `v${version} `}initialized :{' '}
+        {isInitMaio.toString()}
+      </Text>
       <Text style={TX}>ADS can show : {isReady.toString()}</Text>
+      {!isReady && <Text style={TX}>Reason : {reason}</Text>}
       <TouchableOpacity style={BTN} onPress={onShowAdvertising}>
         <Text style={TX_BTN}>Show video ADS</Text>
       </TouchableOpacity>

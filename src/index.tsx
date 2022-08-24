@@ -41,6 +41,7 @@ export interface MaioEvent {
   type: EventType;
   skipped?: boolean;
   error?: MaioFailReason;
+  version?: string;
 }
 
 /**

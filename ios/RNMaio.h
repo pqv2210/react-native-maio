@@ -6,6 +6,7 @@
 
 #define NAME @"Maio"
 #define TYPE @"type"
+#define VERSION @"version"
 #define SKIPPED @"skipped"
 #define INITIALIZED @"initialized"
 #define CLICKED @"clicked"

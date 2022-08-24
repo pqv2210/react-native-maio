@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -34,6 +33,7 @@ public class RNMaioModule extends ReactContextBaseJavaModule {
 
   private final static String TYPE = "type";
   private final static String SKIPPED = "skipped";
+  private final static String VERSION = "version";
   private final static String INITIALIZED = "initialized";
   private final static String OPENED = "opened";
   private final static String STARTED = "started";
@@ -86,7 +86,10 @@ public class RNMaioModule extends ReactContextBaseJavaModule {
       MaioAds.init(currentActivity, mediaEID, new MaioAdsListener() {
         @Override
         public void onInitialized() {
-          onSentEvent(INITIALIZED);
+          final WritableMap eventMap = new WritableNativeMap();
+          eventMap.putString(TYPE, INITIALIZED);
+          eventMap.putString(VERSION, MaioAds.getSdkVersion());
+          reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(NAME, eventMap);
         }
 
         @Override
@@ -122,7 +125,7 @@ public class RNMaioModule extends ReactContextBaseJavaModule {
         }
       });
     } catch (Exception e) {
-      Log.d("", "");
+      //
     }
   }
 
