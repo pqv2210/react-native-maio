@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -130,8 +130,8 @@ public class RNMaioModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void isAdvertisingReady(Callback callback) {
-    callback.invoke(MaioAds.canShow());
+  public void isAdvertisingReady(Promise promise) {
+    promise.resolve(MaioAds.canShow());
   }
 
   @ReactMethod

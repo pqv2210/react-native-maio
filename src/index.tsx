@@ -2,10 +2,7 @@ import {
   EmitterSubscription,
   NativeEventEmitter,
   NativeModules,
-  Platform,
 } from 'react-native';
-
-const isiOS = Platform.OS === 'ios';
 
 const { RNMaio } = NativeModules;
 
@@ -55,30 +52,11 @@ export function addMaioListener(
 }
 
 /**
- * @function check checkCBAction - callback Action available or not
- * @param isReady - from isAdvertisingReady - require
- * @param cbAction - callback Action - optional
- */
-const checkCBAction = (isReady: boolean, cbAction?: () => void) => {
-  if (isReady && cbAction) {
-    return cbAction();
-  }
-};
-
-/**
  * @function check Adverting ready to display or not
  * @param cbAction is callback Action - optional
  */
-export function isAdvertisingReady(cbAction?: () => void): void {
-  if (isiOS) {
-    RNMaio.isAdvertisingReady('', (isReady: boolean) => {
-      return checkCBAction(isReady, cbAction);
-    });
-  } else {
-    RNMaio.isAdvertisingReady((isReady: boolean) => {
-      return checkCBAction(isReady, cbAction);
-    });
-  }
+export async function isAdvertisingReady(): Promise<boolean> {
+  return RNMaio.isAdvertisingReady();
 }
 
 /**

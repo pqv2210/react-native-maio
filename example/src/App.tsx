@@ -23,10 +23,13 @@ export default function App() {
   const [isInitMaio, setIsInitMaio] = React.useState<boolean>(false);
   const [isReady, setIsReady] = React.useState<boolean>(false);
 
+  const checkADS = async () => {
+    const isReady = await isAdvertisingReady();
+    setIsReady(isReady);
+  };
+
   React.useEffect(() => {
-    isAdvertisingReady(() => {
-      setIsReady(true);
-    });
+    checkADS();
     addMaioListener((event: MaioEvent) => {
       switch (event.type) {
         case EventType.initialized:

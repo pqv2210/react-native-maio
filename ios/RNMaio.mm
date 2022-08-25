@@ -112,12 +112,9 @@ RCT_EXPORT_MODULE();
   }
 }
 
-RCT_EXPORT_METHOD(isAdvertisingReady: response:(RCTResponseSenderBlock)callback) {
-  if ([Maio canShow]) {
-    callback(@[@true]);
-  } else {
-    callback(@[@false]);
-  }
+RCT_EXPORT_METHOD(isAdvertisingReady: (RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  resolve(@([Maio canShow]));
 }
 
 RCT_EXPORT_METHOD(onShowAdvertising) {
