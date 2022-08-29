@@ -1,6 +1,6 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import <Maio.h>
+#import <Maio/Maio.h>
 
 @interface RNMaio : RCTEventEmitter <RCTBridgeModule, MaioDelegate>
 

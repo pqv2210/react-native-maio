@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <Maio.h>
+#import <Maio/Maio.h>
 #import "RNMaio.h"
 
 @implementation RNMaio {

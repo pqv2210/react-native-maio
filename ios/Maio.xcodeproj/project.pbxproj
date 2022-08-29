@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A357F27128BCAE0900901650 /* Maio.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357F27028BCAE0800901650 /* Maio.xcframework */; };
 		A3C0C31728B3BECA00489B80 /* RNMaio.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3C0C31428B3BCBC00489B80 /* RNMaio.mm */; };
-		A3C0C32228B3D38B00489B80 /* Maio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C0C32128B3D38B00489B80 /* Maio.framework */; };
-		A3C0C32328B3D38E00489B80 /* Maio.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = A3C0C32128B3D38B00489B80 /* Maio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,7 +18,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				A3C0C32328B3D38E00489B80 /* Maio.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -28,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libMaio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMaio.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A357F27028BCAE0800901650 /* Maio.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Maio.xcframework; path = dependencies/Maio.xcframework; sourceTree = "<group>"; };
 		A3C0C31328B3BCBC00489B80 /* RNMaio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNMaio.h; sourceTree = "<group>"; };
 		A3C0C31428B3BCBC00489B80 /* RNMaio.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RNMaio.mm; sourceTree = "<group>"; };
-		A3C0C32128B3D38B00489B80 /* Maio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Maio.framework; path = dependencies/Maio.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3C0C32228B3D38B00489B80 /* Maio.framework in Frameworks */,
+				A357F27128BCAE0900901650 /* Maio.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +64,7 @@
 		A3770F6F28AE90C1007D34D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3C0C32128B3D38B00489B80 /* Maio.framework */,
+				A357F27028BCAE0800901650 /* Maio.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
