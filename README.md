@@ -17,7 +17,7 @@ react-native link react-native-maio
 
 2. Manual link
 
-<details open>
+<details close>
 <summary>On iOS:</summary>
 <br>
 1. In XCode, in the project navigator, right click Libraries ➜ Add Files to [your project's name]<br>
@@ -26,7 +26,7 @@ react-native link react-native-maio
 4. Run your project
 </details>
 
-<details open>
+<details close>
 <summary>On Android:</summary>
 <br>
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`<br>
@@ -47,7 +47,7 @@ implementation project(':react-native-maio')
 
 1. iOS
 
-Open your Info.plist and add:
+- Open your Info.plist and add:
 ```
 <key>SKAdNetworkItems</key>
 <array>
@@ -61,6 +61,15 @@ Open your Info.plist and add:
 ```
 
 Replace `DemoMediaForIOS` by your Media ID from Maio console.
+
+- Add MaioSDK to your `Podfile`:
+
+```
+target 'MyApp' do
+  ...
+  pod 'MaioSDK'
+end
+```
 
 2. Android
 

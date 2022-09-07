@@ -16,7 +16,7 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_5_0
 #import <AdSupport/AdSupport.h> // idfaの取得 用
 #endif
-#import <Maio/MaioDelegate.h>
+#import <MaioDelegate.h>
 
 @class MaioInstance;
 
