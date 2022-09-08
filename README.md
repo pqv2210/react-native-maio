@@ -12,7 +12,7 @@ yarn add react-native-maio
 1. Auto link
 
 ```
-react-native link react-native-maio
+npx react-native link react-native-maio
 ```
 
 2. Manual link
@@ -70,6 +70,8 @@ target 'MyApp' do
   pod 'MaioSDK'
 end
 ```
+
+And run `cd ios && pod install`
 
 2. Android
 
