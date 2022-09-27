@@ -14,13 +14,11 @@ import {
   isAdvertisingReady,
   MaioEvent,
   onShowAdvertising,
-  onCheckAndShowAdvertising,
 } from 'react-native-maio';
 
 export default function App() {
   const [version, setVersion] = React.useState<string>('');
   const [reason, setReason] = React.useState<string>('');
-  const [isInitMaio, setIsInitMaio] = React.useState<boolean>(false);
   const [isReady, setIsReady] = React.useState<boolean>(false);
 
   const checkADS = async () => {
@@ -33,7 +31,6 @@ export default function App() {
     addMaioListener((event: MaioEvent) => {
       switch (event.type) {
         case EventType.initialized:
-          setIsInitMaio(true);
           setVersion(event.version ?? '');
           break;
         case EventType.opened:
@@ -56,16 +53,12 @@ export default function App() {
     <SafeAreaView style={CONTAINER}>
       <Image style={LOGO} source={require('./maio-logo.png')} />
       <Text style={TX}>
-        Maio {version !== '' && `v${version} `}initialized :{' '}
-        {isInitMaio.toString()}
+        Maio SDK {version !== '' && `v${version} `}initialized
       </Text>
-      <Text style={TX}>ADS can show : {isReady.toString()}</Text>
-      {!isReady && <Text style={TX}>Reason : {reason}</Text>}
+      <Text style={TX}>ADS is ready : {isReady.toString()}</Text>
+      {reason !== '' && <Text style={TX}>Reason : {reason}</Text>}
       <TouchableOpacity style={BTN} onPress={onShowAdvertising}>
         <Text style={TX_BTN}>Show video ADS</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={BTN} onPress={onCheckAndShowAdvertising}>
-        <Text style={TX_BTN}>Check and show video ADS</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
